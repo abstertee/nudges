@@ -37,8 +37,8 @@ class GlobalTimer: NSObject {
     }
     
     private func getTimeValue() -> Double {
-        //let timerFromJson = nudgePreferences.timer_timer
-        let timerFromJson = 10  //<- Set to X seconds for testing
+        let timerFromJson = nudgePreferences.timer_timer
+        //let timerFromJson = 10  //<- Set to X seconds for testing
         debugPrint("Timer set to \(timerFromJson) seconds from plist.")
         return Double(timerFromJson)
     }
