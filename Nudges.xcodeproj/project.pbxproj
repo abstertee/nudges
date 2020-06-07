@@ -7,20 +7,48 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D019D72D2480417A00257524 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D019D72C2480417A00257524 /* Alerts.swift */; };
+		D0BA9C21247DA65B00B32A25 /* WindowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BA9C20247DA65B00B32A25 /* WindowManager.swift */; };
+		D0BA9C28247F741900B32A25 /* Nudge.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BA9C27247F741900B32A25 /* Nudge.swift */; };
+		D0BF9BD7247704F8003FC9C0 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BF9BD6247704F8003FC9C0 /* Timer.swift */; };
+		D0BF9BD924770FD9003FC9C0 /* NudgeWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BF9BD824770FD9003FC9C0 /* NudgeWindowController.swift */; };
 		D0C786952475B55A00F79FBA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C786942475B55A00F79FBA /* AppDelegate.swift */; };
-		D0C786972475B55A00F79FBA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C786962475B55A00F79FBA /* ViewController.swift */; };
+		D0C786972475B55A00F79FBA /* NudgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C786962475B55A00F79FBA /* NudgeViewController.swift */; };
 		D0C786992475B55C00F79FBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0C786982475B55C00F79FBA /* Assets.xcassets */; };
 		D0C7869C2475B55C00F79FBA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0C7869A2475B55C00F79FBA /* Main.storyboard */; };
+		D0C786A62475B5D900F79FBA /* JsonReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C786A52475B5D900F79FBA /* JsonReader.swift */; };
+		D0C786A82475B5F900F79FBA /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C786A72475B5F900F79FBA /* Logger.swift */; };
+		D0C786AB2475B62400F79FBA /* LogMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C786AA2475B62400F79FBA /* LogMessages.swift */; };
+		D0C786AE2475B64E00F79FBA /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C786AD2475B64E00F79FBA /* Preferences.swift */; };
+		D0C786B22475B7B300F79FBA /* SystemInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C786B12475B7B300F79FBA /* SystemInfo.swift */; };
+		D0C786B42475B7C500F79FBA /* Dates.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C786B32475B7C500F79FBA /* Dates.swift */; };
+		D0C786B62475B7DE00F79FBA /* GlobalVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C786B52475B7DE00F79FBA /* GlobalVars.swift */; };
+		D0C786B82475EC3D00F79FBA /* NVC+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C786B72475EC3D00F79FBA /* NVC+Extension.swift */; };
+		D0C786BA2475EC7700F79FBA /* NudgeViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C786B92475EC7700F79FBA /* NudgeViewModal.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D019D72C2480417A00257524 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
+		D0BA9C20247DA65B00B32A25 /* WindowManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowManager.swift; sourceTree = "<group>"; };
+		D0BA9C27247F741900B32A25 /* Nudge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nudge.swift; sourceTree = "<group>"; };
+		D0BF9BD6247704F8003FC9C0 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
+		D0BF9BD824770FD9003FC9C0 /* NudgeWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NudgeWindowController.swift; sourceTree = "<group>"; };
 		D0C786912475B55A00F79FBA /* Nudges.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nudges.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0C786942475B55A00F79FBA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D0C786962475B55A00F79FBA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D0C786962475B55A00F79FBA /* NudgeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NudgeViewController.swift; sourceTree = "<group>"; };
 		D0C786982475B55C00F79FBA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D0C7869B2475B55C00F79FBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D0C7869D2475B55C00F79FBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0C7869E2475B55C00F79FBA /* Nudges.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Nudges.entitlements; sourceTree = "<group>"; };
+		D0C786A52475B5D900F79FBA /* JsonReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonReader.swift; sourceTree = "<group>"; };
+		D0C786A72475B5F900F79FBA /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		D0C786AA2475B62400F79FBA /* LogMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogMessages.swift; sourceTree = "<group>"; };
+		D0C786AD2475B64E00F79FBA /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
+		D0C786B12475B7B300F79FBA /* SystemInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemInfo.swift; sourceTree = "<group>"; };
+		D0C786B32475B7C500F79FBA /* Dates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dates.swift; sourceTree = "<group>"; };
+		D0C786B52475B7DE00F79FBA /* GlobalVars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVars.swift; sourceTree = "<group>"; };
+		D0C786B72475EC3D00F79FBA /* NVC+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NVC+Extension.swift"; sourceTree = "<group>"; };
+		D0C786B92475EC7700F79FBA /* NudgeViewModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NudgeViewModal.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,6 +62,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D0BA9C26247F740000B32A25 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D0C786942475B55A00F79FBA /* AppDelegate.swift */,
+				D0BA9C27247F741900B32A25 /* Nudge.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		D0C786882475B55A00F79FBA = {
 			isa = PBXGroup;
 			children = (
@@ -53,14 +90,67 @@
 		D0C786932475B55A00F79FBA /* Nudges */ = {
 			isa = PBXGroup;
 			children = (
-				D0C786942475B55A00F79FBA /* AppDelegate.swift */,
-				D0C786962475B55A00F79FBA /* ViewController.swift */,
+				D0BA9C26247F740000B32A25 /* Controllers */,
 				D0C786982475B55C00F79FBA /* Assets.xcassets */,
-				D0C7869A2475B55C00F79FBA /* Main.storyboard */,
+				D0C786B02475B68600F79FBA /* ViewControllers */,
+				D0C786AF2475B67A00F79FBA /* StoryBoard */,
+				D0C786AC2475B63F00F79FBA /* Modals */,
+				D0C786A92475B60B00F79FBA /* Constants */,
+				D0C786A42475B5B800F79FBA /* Utilities */,
 				D0C7869D2475B55C00F79FBA /* Info.plist */,
 				D0C7869E2475B55C00F79FBA /* Nudges.entitlements */,
 			);
 			path = Nudges;
+			sourceTree = "<group>";
+		};
+		D0C786A42475B5B800F79FBA /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				D0C786A52475B5D900F79FBA /* JsonReader.swift */,
+				D0C786A72475B5F900F79FBA /* Logger.swift */,
+				D0BF9BD6247704F8003FC9C0 /* Timer.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		D0C786A92475B60B00F79FBA /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				D0C786B52475B7DE00F79FBA /* GlobalVars.swift */,
+				D0C786AA2475B62400F79FBA /* LogMessages.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		D0C786AC2475B63F00F79FBA /* Modals */ = {
+			isa = PBXGroup;
+			children = (
+				D0C786B12475B7B300F79FBA /* SystemInfo.swift */,
+				D0C786AD2475B64E00F79FBA /* Preferences.swift */,
+				D0C786B32475B7C500F79FBA /* Dates.swift */,
+				D0C786B92475EC7700F79FBA /* NudgeViewModal.swift */,
+				D019D72C2480417A00257524 /* Alerts.swift */,
+			);
+			path = Modals;
+			sourceTree = "<group>";
+		};
+		D0C786AF2475B67A00F79FBA /* StoryBoard */ = {
+			isa = PBXGroup;
+			children = (
+				D0C7869A2475B55C00F79FBA /* Main.storyboard */,
+			);
+			path = StoryBoard;
+			sourceTree = "<group>";
+		};
+		D0C786B02475B68600F79FBA /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D0C786962475B55A00F79FBA /* NudgeViewController.swift */,
+				D0C786B72475EC3D00F79FBA /* NVC+Extension.swift */,
+				D0BF9BD824770FD9003FC9C0 /* NudgeWindowController.swift */,
+				D0BA9C20247DA65B00B32A25 /* WindowManager.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -90,7 +180,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1140;
-				LastUpgradeCheck = 1140;
+				LastUpgradeCheck = 1150;
 				ORGANIZATIONNAME = "Tarverdi Enterprises";
 				TargetAttributes = {
 					D0C786902475B55A00F79FBA = {
@@ -133,8 +223,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D0C786972475B55A00F79FBA /* ViewController.swift in Sources */,
+				D0C786972475B55A00F79FBA /* NudgeViewController.swift in Sources */,
+				D0C786B62475B7DE00F79FBA /* GlobalVars.swift in Sources */,
+				D019D72D2480417A00257524 /* Alerts.swift in Sources */,
+				D0C786A62475B5D900F79FBA /* JsonReader.swift in Sources */,
+				D0BF9BD7247704F8003FC9C0 /* Timer.swift in Sources */,
+				D0C786AE2475B64E00F79FBA /* Preferences.swift in Sources */,
+				D0C786B22475B7B300F79FBA /* SystemInfo.swift in Sources */,
+				D0C786B82475EC3D00F79FBA /* NVC+Extension.swift in Sources */,
+				D0BA9C28247F741900B32A25 /* Nudge.swift in Sources */,
+				D0C786AB2475B62400F79FBA /* LogMessages.swift in Sources */,
 				D0C786952475B55A00F79FBA /* AppDelegate.swift in Sources */,
+				D0BA9C21247DA65B00B32A25 /* WindowManager.swift in Sources */,
+				D0BF9BD924770FD9003FC9C0 /* NudgeWindowController.swift in Sources */,
+				D0C786BA2475EC7700F79FBA /* NudgeViewModal.swift in Sources */,
+				D0C786A82475B5F900F79FBA /* Logger.swift in Sources */,
+				D0C786B42475B7C500F79FBA /* Dates.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,6 +374,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Nudges/Nudges.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 9W2SUNWPBP;
@@ -290,6 +395,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Nudges/Nudges.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 9W2SUNWPBP;
