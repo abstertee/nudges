@@ -12,17 +12,18 @@ class Dates: NSObject {
     var daysRemaining: Int {
         return getDaysRemaining(cutOffDateString)
     }
+    
     private let dateFormat:String = "yyyy-MM-dd-HH:mm"
     
     private var cutOffDateString:String = nudgePreferences.cut_off_date
     
     //daysRemaining = self.getDaysRemaining(cutOffDate: nudgePreferences.preferences.cut_off_date)
     
-    private func getDaysRemaining(_ DateString:String) -> Int {
+    private func getDaysRemaining(_ dateString:String) -> Int {
         let calendar = Calendar.autoupdatingCurrent
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = dateFormat
-        let cutOff = dateFormatter.date(from: DateString)
+        let cutOff = dateFormatter.date(from: dateString)
         let cutOffDay = calendar.startOfDay(for: cutOff!)
         let today = calendar.startOfDay(for: Date())
         guard let daysRemaining = calendar.dateComponents([.day], from: today, to: cutOffDay).day else {

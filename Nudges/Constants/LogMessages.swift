@@ -10,9 +10,11 @@ import Foundation
 
 struct LogMessage {
     struct JsonError {
-        static let jsonReadError = "Could not read the json file at \(AppFiles.nudgePathLog)"
+        static let jsonReadError = "Could not read the json file at \(AppFiles.nudgePathJson)"
         static let jsonReadSuccess = "Successfully read json data from settings file."
         static let errorWindowMessage = "\(JsonError.jsonReadError).  Exiting application."
+        static let errorReadingConfig = "ERROR Reading Config File"
+        static let errorReadingConfigMessage = "There was an error reading the config file so the app will not run properly."
     }
     struct State {
         static let notActive = "Nudge or acceptable applications not currently active."
@@ -33,9 +35,9 @@ struct LogMessage {
         static let buttonUnderstood = "User clicked on understand button - closing window"
         
         static let understoodMessage = """
-        The upgrade will be enforced once the countdown has been reached.
+        The upgrade will be enforced once the days remaining reaches 0.
 
-        At that time, your system will be updated without any notifications.
+        At that time, your system will be updated without any notification.
 
         Please upgrade today to ensure your work is not interrupted.
         """

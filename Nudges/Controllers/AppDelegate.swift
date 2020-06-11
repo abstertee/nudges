@@ -18,11 +18,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             return
         }
         NSApp.setActivationPolicy(.accessory)
-        //nudgewindow.launchWindow()
-        GlobalTimer.sharedTimer.startTimer(andJob: determineStateAndNudge)
+        sleep(UInt32(2.0))
+        // If no timer value is true
+        // then show window once on launch
+        if nudgePreferences.no_timer {
+            determineStateAndNudge()
+        } else{
+            GlobalTimer.sharedTimer.startTimer(andJob: determineStateAndNudge)
+        }
         
     }
-    
     
     func settingsFileExist() -> Bool {
         if FileManager.default.fileExists(atPath: AppFiles.nudgePathJson.path) {
@@ -35,10 +40,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func alertNoSettingsFile() {
         let messageText = "ERROR!"
         let infoText = LogMessage.ApplicationFiles.alertMessage
-        Alerts().alertMessage(currentWindow: nil, messageText: messageText, mainButton: "Ok", additionalButton: "", informativeText: infoText, windowType: .window)
+        Alerts.shared.alertMessage(nil, messageText, "Ok", nil, infoText, .window)
         //exit(1)
     }
 
 
 }
-

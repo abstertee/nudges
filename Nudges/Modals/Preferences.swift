@@ -7,31 +7,16 @@
 //
 
 import Foundation
+import os
 
 struct AppFiles {
     // Folders
     static let nudgePath = FileManager.default.urls(for: .libraryDirectory, in: .localDomainMask)[0].appendingPathComponent("nudges")
-    static let nudgePath_resources = nudgePath.appendingPathComponent("Resources")
-    static let nudgePath_logs = nudgePath.appendingPathComponent("Logs")
+    static let nudgePathResources = nudgePath.appendingPathComponent("Resources")
     
     // Files
-    static let nudgePathJson = AppFiles.nudgePath_resources.appendingPathComponent("nudge.json")
-    static let nudgePathLog = AppFiles.nudgePath_logs.appendingPathComponent("nudge.log")
+    static let nudgePathJson = AppFiles.nudgePathResources.appendingPathComponent("nudge.json")
 }
-
-
-
-func setPreferences() -> JsonRoot? {
-    guard let fileData = try? JSONDecoder().decode(JsonRoot.self, from: JsonReader(jsonFile: AppFiles.nudgePathJson).jsonData) else {
-        return nil
-    }
-    return fileData
-    
-}
-
-var nudgePreferencesRaw: JsonRoot? = setPreferences()
-let nudgePreferences = nudgePreferencesRaw!.preferences
-
 
 struct JsonRoot: Codable {
     let preferences: JsonPreferencesKey
@@ -63,8 +48,33 @@ struct JsonPreferencesKey: Codable {
     let timer_elapsed: Int
     let timer_final: Int
     let timer_initial: Int
-    let timer_timer: Int
     let update_minor: Bool
     let update_minor_days: Int
 }
+
+
+var nudgePreferencesRaw: JsonRoot? = setPreferences()
+let nudgePreferences = nudgePreferencesRaw!.preferences
+
+func getPrefs() -> JsonPreferencesKey {
+    guard let prefs = nudgePreferencesRaw else {
+        let messageText = "ERROR Reading Config file."
+        let infoText = "There was an error reading the config file so the app will not run properly."
+        Alerts.shared.alertMessage(nil, messageText, "Ok", nil, infoText, .window)
+        exit(1)
+        //return
+    }
+    return prefs.preferences
+}
+
+func setPreferences() -> JsonRoot? {
+    do {
+        let fileData = try JSONDecoder().decode(JsonRoot.self, from: JsonReader(jsonFile: AppFiles.nudgePathJson).jsonData)
+        return fileData
+    } catch {
+        OSLog.log(LogMessage.JsonError.jsonReadError + "\(error)", log: OSLog.error, type: .error)
+        return nil
+    }
+}
+
 

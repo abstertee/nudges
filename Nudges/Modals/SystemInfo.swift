@@ -9,43 +9,41 @@
 import Foundation
 
 var systemInfo:SystemInfo = SystemInfo()
-struct SystemInfo {
-    
-    var serialNumber: String = getMacSerialNumber()
-    var currentUser: String = getCurrentUser()
+class SystemInfo {
+    var serialNumber: String = ""// = getMacSerialNumber()
+    var currentUser: String = ""// = getCurrentUser()
     var osVersion: String
     var majorOs: Int = ProcessInfo.processInfo.operatingSystemVersion.majorVersion
     var minorOs: Int = ProcessInfo.processInfo.operatingSystemVersion.minorVersion
     var patchOs: Int = ProcessInfo.processInfo.operatingSystemVersion.patchVersion
-    
     init() {
         self.osVersion = "\(self.majorOs).\(self.minorOs).\(self.patchOs)"
+        self.serialNumber = getMacSerialNumber()
+        self.currentUser = getCurrentUser()
     }
     
-}
-
-func getMacSerialNumber() -> String {
-        var serialNumber: String? {
-        let platformExpert = IOServiceGetMatchingService(kIOMasterPortDefault, IOServiceMatching("IOPlatformExpertDevice") )
-        
-        guard platformExpert > 0 else {
-            return nil
+    func getMacSerialNumber() -> String {
+            var serialNumber: String? {
+            let platformExpert = IOServiceGetMatchingService(kIOMasterPortDefault, IOServiceMatching("IOPlatformExpertDevice") )
+            guard platformExpert > 0 else {
+                return nil
+            }
+            guard let serialNumber = (IORegistryEntryCreateCFProperty(platformExpert, kIOPlatformSerialNumberKey as CFString, kCFAllocatorDefault, 0).takeUnretainedValue() as? String)?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines) else {
+                return nil
+            }
+            IOObjectRelease(platformExpert)
+            return serialNumber
         }
-        
-        guard let serialNumber = (IORegistryEntryCreateCFProperty(platformExpert, kIOPlatformSerialNumberKey as CFString, kCFAllocatorDefault, 0).takeUnretainedValue() as? String)?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines) else {
-            return nil
-        }
-        
-        IOObjectRelease(platformExpert)
-
-        return serialNumber
+        return serialNumber ?? "Unknown"
     }
     
-    return serialNumber ?? "Unknown"
+    func getCurrentUser() -> String {
+        return NSUserName()
+    }
 }
 
-func getCurrentUser() -> String {
-    return NSUserName()
-}
+
+
+
 
 

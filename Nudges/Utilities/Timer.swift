@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import os.log
 
 class GlobalTimer: NSObject {
     static let sharedTimer: GlobalTimer = {
@@ -32,20 +33,28 @@ class GlobalTimer: NSObject {
         }
         jobs.append(job)
         activateWindow()
-        self.internalTimer = Timer.scheduledTimer(timeInterval: getTimeValue() /*seconds*/, target: self, selector: #selector(activateWindow), userInfo: nil, repeats: true)
+        self.internalTimer = Timer.scheduledTimer(timeInterval: getTimeValue() /*seconds*/, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
         internalTimer?.fire()
     }
     
     private func getTimeValue() -> Double {
-        let timerFromJson = nudgePreferences.timer_timer
-        //let timerFromJson = 10  //<- Set to X seconds for testing
-        debugPrint("Timer set to \(timerFromJson) seconds from plist.")
+        let timerFromJson = nudgePreferences.timer_initial
+        //let timerFromJson = 5  //<- Set to X seconds for testing
+        //debugPrint("Timer set to \(timerFromJson) seconds from plist.")
+        OSLog.log("Timer set to \(timerFromJson)", log: .info, type: .info)
         return Double(timerFromJson)
     }
     
     @objc func activateWindow(){
-        debugPrint("Timer Set. Countdown from \(getTimeValue()) seconds.")
+        //debugPrint("Timer Set. Countdown from \(getTimeValue()) seconds.")
         determineStateAndNudge()
+    }
+    
+    @objc func fireTimer() {
+        guard jobs.count > 0 else { return }
+        for job in jobs {
+            job()
+        }
     }
 }
 

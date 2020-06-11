@@ -110,7 +110,7 @@
                             <textField identifier="field.h1text" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eV0-YG-pgw">
                                 <rect key="frame" x="319" y="65" width="520" height="19"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" placeholderString="Not getting this notification?" id="S4N-we-1TW">
+                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" placeholderString="Ready to start the update?" id="S4N-we-1TW">
                                     <font key="font" metaFont="systemBold" size="12"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -138,7 +138,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <buttonCell key="cell" type="push" title="Update Now" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="OWc-v3-K5H">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
+                                    <font key="font" metaFont="label" size="13"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="button_update:" target="XfG-lQ-9wD" id="aP2-Wv-gVj"/>
@@ -180,7 +180,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <buttonCell key="cell" type="push" title="Defer" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="gg9-Fn-Ofn">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
+                                    <font key="font" metaFont="label" size="13"/>
                                     <string key="keyEquivalent" base64-UTF8="YES">
 DQ
 </string>
@@ -221,7 +221,7 @@ DQ
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <buttonCell key="cell" type="push" title="More Info" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="7vS-gs-TPx">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
+                                    <font key="font" metaFont="label" size="13"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="button_moreinfo:" target="XfG-lQ-9wD" id="XGW-2n-45r"/>
@@ -248,7 +248,7 @@ DQ
                             <textField identifier="field.h2text" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qh5-Kt-lND">
                                 <rect key="frame" x="319" y="45" width="520" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" placeholderString="You can also enroll manually below:" id="XwQ-TT-UCt">
+                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" placeholderString="Click on the buttton below." id="XwQ-TT-UCt">
                                     <font key="font" metaFont="label" size="12"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -286,6 +286,7 @@ DQ
                     <connections>
                         <outlet property="button_defer" destination="0zO-VX-CdU" id="kGy-9y-DxW"/>
                         <outlet property="button_moreinfo" destination="4Sc-Pp-Vde" id="jjo-mB-EC5"/>
+                        <outlet property="button_update" destination="oyk-ei-5a8" id="dQI-gK-iCh"/>
                         <outlet property="field_daysremaining" destination="kC2-TL-1sJ" id="9BT-MR-2kB"/>
                         <outlet property="field_daysremainingtext" destination="OOf-bB-dLk" id="SHC-Os-VP3"/>
                         <outlet property="field_h1text" destination="eV0-YG-pgw" id="w0x-sm-MD6"/>

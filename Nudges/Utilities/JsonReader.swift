@@ -20,22 +20,25 @@ class JsonReader {
     
     private func getJsonData(_ jsonFile: URL) -> Data {
         let tempData = Data()
-        let temp = try? Data(contentsOf: jsonFile, options: .dataReadingMapped)
-        guard let decodedData = temp else {
-            OSLog.log(LogMessage.JsonError.jsonReadError, log: OSLog.error, type: .error)
-            return tempData
+        do {
+            let myData = try Data(contentsOf: jsonFile, options: .dataReadingMapped)
+            if myData.isEmpty {
+                OSLog.log(LogMessage.JsonError.jsonReadError, log: OSLog.error, type: .error)
+                return tempData
+            }
+            return myData
         }
-        if decodedData.isEmpty {
-            OSLog.log(LogMessage.JsonError.jsonReadError, log: OSLog.error, type: .error)
-            return tempData
+        catch {
+            print(error)
+            Alerts.shared.alertMessage(nil, LogMessage.JsonError.errorReadingConfig, "Ok", nil, LogMessage.JsonError.errorReadingConfigMessage, .window)
+            //exit(1)
         }
-        OSLog.log(LogMessage.JsonError.jsonReadSuccess, log: OSLog.info, type: .info)
-        return decodedData
+        return tempData
     }
     
     private func createJsonStructs(_ jsonData: Data) -> Void {
         let decodedData = try? JSONDecoder().decode(JsonRoot.self, from: jsonData)
-        guard let jsondata = decodedData else {
+        guard decodedData != nil else {
             return
         }
         //print(jsondata)
@@ -44,3 +47,20 @@ class JsonReader {
     }
 
 }
+
+
+
+/*private func getJsonData(_ jsonFile: URL) -> Data {
+    let tempData = Data()
+    let temp = try? Data(contentsOf: jsonFile, options: .dataReadingMapped)
+    guard let decodedData = temp else {
+        OSLog.log(LogMessage.JsonError.jsonReadError, log: OSLog.error, type: .error)
+        return tempData
+    }
+    if decodedData.isEmpty {
+        OSLog.log(LogMessage.JsonError.jsonReadError, log: OSLog.error, type: .error)
+        return tempData
+    }
+    OSLog.log(LogMessage.JsonError.jsonReadSuccess, log: OSLog.info, type: .info)
+    return decodedData
+}*/

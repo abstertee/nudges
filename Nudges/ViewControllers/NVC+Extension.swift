@@ -8,14 +8,17 @@
 
 import Foundation
 import Cocoa
-import os
+//import os
 
 extension NudgeViewController {
 
 func setButtons() {
-    
+    button_update.isHighlighted = true
    // Show or Hide the More Info button
-       button_moreinfo.isHidden = false
+    if nudgePreferences.more_info_url.absoluteString.isEmpty {
+        button_moreinfo.isHidden = true
+    }
+    button_moreinfo.isHidden = false
     
     // Show Hide Defer Button
     if nudgeViewModel.dismissalCounter() || Dates().daysRemaining <= 0 {
@@ -24,14 +27,13 @@ func setButtons() {
     } else {
         // Dimissal has NOT reached threshold
         button_defer.isHidden = false
-        button_defer.isHighlighted = true
+        //button_defer.isHighlighted = true
     }
    }
    
    func setImage() {
         image_companylogo.image = nudgeViewModel.companyLogo
         image_updates.image = nudgeViewModel.getScreenShot()
-       
    }
    
    func setTextFields() {
@@ -49,6 +51,7 @@ func setButtons() {
                 field_daysremaining.integerValue = nudgeViewModel.daysRemainingCalc()
         } else {
             field_daysremaining.stringValue = "Past Due!"
+            field_daysremaining.textColor = .red
         }
         
         field_updated.stringValue = nudgeViewModel.fullyUpdated().description
@@ -56,17 +59,10 @@ func setButtons() {
    }
     
     func showAgreementSheet() {
-        let alert = NSAlert()
-        alert.messageText = "\(nudgeViewModel.daysRemainingCalc()) Days Remaining Until Enforcement" 
-        alert.informativeText = "The IT team will begin upgrade enforcement in \(nudgeViewModel.daysRemainingCalc()) days. At that time, your system will be updated without any notifications."
-        alert.addButton(withTitle: "I Understand")
-        alert.alertStyle = .warning
-        alert.icon = nudgeViewModel.getScreenShot()
-        alert.beginSheetModal(for: self.window, completionHandler: { (returnCode) -> Void in
-            OSLog.log(LogMessage.ButtonActions.buttonUnderstood, log: OSLog.info, type: .info)
-            self.window.close()
-            
-        })
+        let messagetext = "\(nudgeViewModel.daysRemainingCalc()) Days Remaining Until Enforcement"
+        let informativeText = "The IT team will begin upgrade enforcement in \(nudgeViewModel.daysRemainingCalc()) days. At that time, your system will be updated without any notifications."
+        Alerts.shared.alertMessage(nudgewindow.myWindow, messagetext, "I Understand", nil, informativeText, .sheet)
+        globalvars.dismissalCount += 1
+
     }
-   
 }

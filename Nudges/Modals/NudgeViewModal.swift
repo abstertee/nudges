@@ -9,7 +9,7 @@
 import Foundation
 import Cocoa
 
-class NudgeViewModel: NSObject {
+class NudgeViewModel {
     
     var nudgeDimissalCountReached:Bool = false
     lazy var companyLogo = getCompanyLogo()
@@ -30,7 +30,6 @@ class NudgeViewModel: NSObject {
         }
     }
     
-    
     func daysRemainingCalc() -> Int {
         if Dates().daysRemaining < 0 {
             return 0
@@ -38,7 +37,6 @@ class NudgeViewModel: NSObject {
             return Dates().daysRemaining
         }
     }
-    
     
     func getCompanyLogo() -> NSImage? {
         if FileManager.default.fileExists(atPath: nudgePreferences.logo_path) {
@@ -73,6 +71,10 @@ class NudgeViewModel: NSObject {
         return false
     }
     
+    deinit {
+        print("NudgeViewModal deinitialized")
+    }
+    
 }
-let nudgeViewModel = NudgeViewModel()
+var nudgeViewModel = NudgeViewModel()
 

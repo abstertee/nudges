@@ -30,35 +30,28 @@ class NudgeViewController: NSViewController {
     @IBOutlet weak var field_updated: NSTextField!
     // Buttons
 
-    @IBOutlet weak var button_understand: NSButton!
+    @IBOutlet weak var button_update: NSButton!
     @IBOutlet weak var button_moreinfo: NSButton!
     @IBOutlet weak var button_defer: NSButton!
-    
-    lazy var window: NSWindow! = self.view.window
+        
     override func viewWillAppear() {
         super.viewWillAppear()
-        window.titleVisibility = .hidden
     }
-    var nudgeViewModel = NudgeViewModel()
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setTextFields()
         setImage()
         setButtons()
-        
     }
 
-    override var representedObject: Any? {
-        didSet {
-        // Update the view, if already loaded.
-        }
+    deinit {
+        //print("Nudge View Controller Deinitialized")
     }
 
     @IBAction func image_updates_clicked(_ sender: Any) {
-        
+        button_update("ImgeBut")
     }
     
     @IBAction func button_defer(_ sender: NSButton) {
@@ -68,7 +61,7 @@ class NudgeViewController: NSViewController {
         //showAgreementSheet()
         let messageText = "Days Remaining Until Enforcement: \(nudgeViewModel.daysRemainingCalc())"
         let informText = LogMessage.ButtonActions.understoodMessage
-    Alerts.shared.alertMessage(currentWindow: nudgewindow.myWindow, messageText: messageText, mainButton: "I Understand", additionalButton: "", informativeText: informText, windowType: .sheet)
+        Alerts.shared.alertMessage(nudgewindow.myWindow, messageText, "I Understand", nil, informText, .sheet)
         button_defer.isHidden = true
     }
        
@@ -84,7 +77,7 @@ class NudgeViewController: NSViewController {
         if FileManager.default.fileExists(atPath: nudgePreferences.path_to_app) == false {
             OSLog.log(LogMessage.ApplicationFiles.pathToAppMissing, log: OSLog.error, type: .error)
             //logger.write(LogMessage.ApplicationFiles.pathToAppMissing)
-            Alerts.shared.alertMessage(currentWindow: self.window, messageText: "Uh Oh!", mainButton: "Ok", additionalButton: "", informativeText: LogMessage.ApplicationFiles.pathToAppMissing, windowType: .sheet)
+            Alerts.shared.alertMessage(nudgewindow.myWindow, "Uh Oh!", "Ok", nil, LogMessage.ApplicationFiles.pathToAppMissing, .sheet)
             return
         }
         //print(nudgePreferences.path_to_app)

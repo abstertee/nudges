@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D019D72D2480417A00257524 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D019D72C2480417A00257524 /* Alerts.swift */; };
+		D01DD1CF248EF2F9001C84BF /* nudge.json in Resources */ = {isa = PBXBuildFile; fileRef = D01DD1CE248EF2F9001C84BF /* nudge.json */; };
 		D0BA9C21247DA65B00B32A25 /* WindowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BA9C20247DA65B00B32A25 /* WindowManager.swift */; };
 		D0BA9C28247F741900B32A25 /* Nudge.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BA9C27247F741900B32A25 /* Nudge.swift */; };
 		D0BF9BD7247704F8003FC9C0 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BF9BD6247704F8003FC9C0 /* Timer.swift */; };
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		D019D72C2480417A00257524 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
+		D01DD1CE248EF2F9001C84BF /* nudge.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = nudge.json; sourceTree = "<group>"; };
 		D0BA9C20247DA65B00B32A25 /* WindowManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowManager.swift; sourceTree = "<group>"; };
 		D0BA9C27247F741900B32A25 /* Nudge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nudge.swift; sourceTree = "<group>"; };
 		D0BF9BD6247704F8003FC9C0 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				D0C786A42475B5B800F79FBA /* Utilities */,
 				D0C7869D2475B55C00F79FBA /* Info.plist */,
 				D0C7869E2475B55C00F79FBA /* Nudges.entitlements */,
+				D01DD1CE248EF2F9001C84BF /* nudge.json */,
 			);
 			path = Nudges;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 			files = (
 				D0C786992475B55C00F79FBA /* Assets.xcassets in Resources */,
 				D0C7869C2475B55C00F79FBA /* Main.storyboard in Resources */,
+				D01DD1CF248EF2F9001C84BF /* nudge.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

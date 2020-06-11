@@ -9,20 +9,12 @@
 import Cocoa
 
 class NudgeWindowController: NSWindowController {
-
-    convenience init() {
-        self.init(windowNibName: "")
-        //self.init()
-
-    }
-    
     override func loadWindow() {
         let screenSize: NSRect = (NSScreen.main?.frame)!
         let percent: CGFloat = 1.0
         let offset: CGFloat = (1.0-percent)/2.0
         let windowRect = NSMakeRect(screenSize.size.width*offset, screenSize.size.height*offset, 850, 475)
         let window = Window(contentRect: windowRect, styleMask: [.borderless], backing: .buffered, defer: true)
-
         window.center()
     }
     
@@ -31,9 +23,7 @@ class NudgeWindowController: NSWindowController {
         //contentViewController = NudgeViewController()
         window?.isMovableByWindowBackground = true
         window?.isMovable = false
-        
     }
-    
 }
 
 class Window: NSWindow {
@@ -43,4 +33,3 @@ class Window: NSWindow {
         isMovable = false
     }
 }
-

@@ -8,9 +8,9 @@
 
 import Cocoa
 
-class WindowManager: NSWindowController {
-    
+class WindowManager: NSObject, NSWindowDelegate {
     var myWindow: NSWindow? = nil
+    weak var viewControl: NSWindowController? = nil
     
     func launchWindow() {
         let mainStoryboard = NSStoryboard(name: "Main", bundle: nil)
@@ -18,15 +18,23 @@ class WindowManager: NSWindowController {
         myWindow = Window(contentViewController: sourceViewController)
         myWindow?.makeKeyAndOrderFront(self)
 
-        let vc = NudgeWindowController(window: myWindow)
-        vc.showWindow(self)
-        //GlobalTimer.sharedTimer.stopTimer()
+        //let vc = NudgeWindowController(window: myWindow)
+        //vc.showWindow(self)
+        viewControl = NudgeWindowController(window: myWindow)
+        viewControl?.showWindow(self)
+        //print("View Loaded fom storyboard")
     }
     
     func closeWindow() {
-        GlobalTimer.sharedTimer.startTimer(andJob: determineStateAndNudge)
+        //print("Window Closed")
+        viewControl = nil
     }
-
-
+    
+    deinit {
+        //print("WindowManager deinitialized")
+        viewControl = nil
+    }
 }
+
 var nudgewindow = WindowManager()
+
