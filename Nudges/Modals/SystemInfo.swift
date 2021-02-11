@@ -13,6 +13,7 @@ class SystemInfo {
     var serialNumber: String = ""// = getMacSerialNumber()
     var currentUser: String = ""// = getCurrentUser()
     var osVersion: String
+    
     var majorOs: Int = ProcessInfo.processInfo.operatingSystemVersion.majorVersion
     var minorOs: Int = ProcessInfo.processInfo.operatingSystemVersion.minorVersion
     var patchOs: Int = ProcessInfo.processInfo.operatingSystemVersion.patchVersion

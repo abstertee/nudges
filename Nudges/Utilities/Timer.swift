@@ -9,52 +9,53 @@
 import Foundation
 import os.log
 
-class GlobalTimer: NSObject {
-    static let sharedTimer: GlobalTimer = {
-        let timer = GlobalTimer()
-        return timer
-    }()
+struct GlobalTimerDefaultValues {
+    let loopTime:Double = 5.0
+}
+
+class GlobalTimer {
+    var timer: Timer? = nil
+    var startTime: Date?
+    var loopTime: Double = GlobalTimerDefaultValues().loopTime
     
-    private var internalTimer: Timer?
-    private var jobs = [() -> Void]()
-    
-    func stopTimer(){
-        guard self.internalTimer != nil else {
-            debugPrint(LogMessage.Timer.noTimerActive)
-            return
-        }
-        self.internalTimer?.invalidate()
+    func resetTimer() {
+        stopTimer()
+        startTimer(newLoopTime: GlobalTimerDefaultValues().loopTime)
     }
     
-    func startTimer(andJob job: @escaping () -> Void) {
-        if self.internalTimer != nil {
-            debugPrint(LogMessage.Timer.running)
-            internalTimer?.invalidate()
-        }
-        jobs.append(job)
-        activateWindow()
-        self.internalTimer = Timer.scheduledTimer(timeInterval: getTimeValue() /*seconds*/, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
-        internalTimer?.fire()
+    func stopTimer() {
+        print("Stopping Timer")
+        timer?.invalidate()
+        timer = nil
+        //timerAction()
     }
     
-    private func getTimeValue() -> Double {
-        let timerFromJson = nudgePreferences.timer_initial
-        //let timerFromJson = 5  //<- Set to X seconds for testing
-        //debugPrint("Timer set to \(timerFromJson) seconds from plist.")
-        OSLog.log("Timer set to \(timerFromJson)", log: .info, type: .info)
-        return Double(timerFromJson)
+    func startTimer(newLoopTime: Double?) {
+        print("Starting Timer")
+        timer = Timer.scheduledTimer(timeInterval: newLoopTime ?? GlobalTimerDefaultValues().loopTime,
+                                     target: self,
+                                     selector: #selector(timerAction),
+                                     userInfo: nil,
+                                     repeats: true)
     }
     
-    @objc func activateWindow(){
-        //debugPrint("Timer Set. Countdown from \(getTimeValue()) seconds.")
+    @objc func timerAction() {
         determineStateAndNudge()
     }
     
-    @objc func fireTimer() {
-        guard jobs.count > 0 else { return }
-        for job in jobs {
-            job()
+    private func getTimeValue() -> Double {
+
+        if nudgePreferences.timer.no_timer {
+            return loopTime
         }
+        
+        let timerFromJson = Double(nudgePreferences.timer.timer_initial)
+        loopTime = timerFromJson
+        //let timerFromJson = 5  //<- Set to X seconds for testing
+        //OSLog.log("Timer set to \(timerFromJson)", log: .info, type: .info)
+        logger.write(entry: "Timer set to \(timerFromJson)")
+        return loopTime
     }
 }
 
+var globalTimer = GlobalTimer()

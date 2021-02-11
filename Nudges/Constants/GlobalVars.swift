@@ -10,15 +10,15 @@ import Foundation
 
 struct GlobalVars {
     var workspace = NSWorkspace.shared
-    var dismissalThreshold = nudgePreferences.dismissal_count_threshold
+    var dismissalThreshold = nudgePreferences.preferences.dismissal_count_threshold
     var dismissalCount: Int = 0
     var acceptableApps: [String] = [
         "com.apple.loginwindow",
         "com.apple.systempreferences",
         "com.tarent.Nudges"
     ]
-    var pathToUpdate = nudgePreferences.path_to_app
-    var moreInfoUrl:URL = nudgePreferences.more_info_url
+    var pathToUpdate = nudgePreferences.preferences.path_to_app
+    var moreInfoUrl:URL = nudgePreferences.userInterface.more_info_url
     
 }
 

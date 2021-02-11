@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17701"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -93,7 +94,7 @@
                                 <rect key="frame" x="300" y="350" width="538" height="19"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" placeholderString="A friendly reminder from your local IT team" id="KNK-Tt-C85">
-                                    <font key="font" metaFont="label" size="12"/>
+                                    <font key="font" metaFont="cellTitle"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -102,13 +103,13 @@
                                 <rect key="frame" x="123" y="180" width="149" height="20"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" placeholderString="No" allowsEditingTextAttributes="YES" id="9no-r4-yd5">
-                                    <font key="font" metaFont="label" size="12"/>
+                                    <font key="font" metaFont="cellTitle"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <textField identifier="field.h1text" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eV0-YG-pgw">
-                                <rect key="frame" x="319" y="65" width="520" height="19"/>
+                                <rect key="frame" x="319" y="65" width="342" height="19"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" placeholderString="Ready to start the update?" id="S4N-we-1TW">
                                     <font key="font" metaFont="systemBold" size="12"/>
@@ -120,7 +121,7 @@
                                 <rect key="frame" x="123" y="200" width="149" height="20"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" placeholderString="C00000000000" allowsEditingTextAttributes="YES" id="HoA-Hj-Unz">
-                                    <font key="font" metaFont="label" size="12"/>
+                                    <font key="font" metaFont="cellTitle"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -138,7 +139,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <buttonCell key="cell" type="push" title="Update Now" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="OWc-v3-K5H">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="label" size="13"/>
+                                    <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="button_update:" target="XfG-lQ-9wD" id="aP2-Wv-gVj"/>
@@ -161,7 +162,7 @@
                                 <rect key="frame" x="318" y="193" width="520" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" placeholderString="To begin the update, simply click on the button below and follow the provided steps." id="H6Z-b8-7mI">
-                                    <font key="font" metaFont="label" size="12"/>
+                                    <font key="font" metaFont="cellTitle"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -176,11 +177,11 @@
                                 </textFieldCell>
                             </textField>
                             <button identifier="button.defer" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0zO-VX-CdU">
-                                <rect key="frame" x="769" y="10" width="74" height="32"/>
+                                <rect key="frame" x="625" y="10" width="74" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <buttonCell key="cell" type="push" title="Defer" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="gg9-Fn-Ofn">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="label" size="13"/>
+                                    <font key="font" metaFont="system"/>
                                     <string key="keyEquivalent" base64-UTF8="YES">
 DQ
 </string>
@@ -221,7 +222,7 @@ DQ
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <buttonCell key="cell" type="push" title="More Info" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="7vS-gs-TPx">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="label" size="13"/>
+                                    <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="button_moreinfo:" target="XfG-lQ-9wD" id="XGW-2n-45r"/>
@@ -231,7 +232,7 @@ DQ
                                 <rect key="frame" x="123" y="160" width="149" height="20"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" placeholderString="13" allowsEditingTextAttributes="YES" id="UQg-pk-nzZ">
-                                    <font key="font" metaFont="label" size="12"/>
+                                    <font key="font" metaFont="cellTitle"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -240,16 +241,16 @@ DQ
                                 <rect key="frame" x="123" y="219" width="149" height="21"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" placeholderString="first.last" allowsEditingTextAttributes="YES" id="xt9-rK-q8W">
-                                    <font key="font" metaFont="label" size="12"/>
+                                    <font key="font" metaFont="cellTitle"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <textField identifier="field.h2text" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qh5-Kt-lND">
-                                <rect key="frame" x="319" y="45" width="520" height="20"/>
+                                <rect key="frame" x="319" y="45" width="312" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" placeholderString="Click on the buttton below." id="XwQ-TT-UCt">
-                                    <font key="font" metaFont="label" size="12"/>
+                                    <font key="font" metaFont="cellTitle"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -258,7 +259,7 @@ DQ
                                 <rect key="frame" x="319" y="240" width="520" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" placeholderString="If you do not update your computer, you may lose access to some items necessary for your day-to-day tasks." id="vfw-Mk-Sc8">
-                                    <font key="font" metaFont="label" size="12"/>
+                                    <font key="font" metaFont="cellTitle"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -276,7 +277,38 @@ DQ
                                 <rect key="frame" x="319" y="284" width="520" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" placeholderString="A fully up-to-date device is required to ensure that IT can your accurately protect your computer." id="lbG-iw-PU3">
-                                    <font key="font" metaFont="label" size="12"/>
+                                    <font key="font" metaFont="cellTitle"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YXa-56-QoG">
+                                <rect key="frame" x="706" y="14" width="133" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <popUpButtonCell key="cell" type="push" title="--Select--" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="mhU-cg-cbl" id="YCi-Bt-veC">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="menu"/>
+                                    <menu key="menu" id="5mc-e3-lyi">
+                                        <items>
+                                            <menuItem title="--Select--" state="on" id="mhU-cg-cbl"/>
+                                        </items>
+                                    </menu>
+                                </popUpButtonCell>
+                            </popUpButton>
+                            <textField identifier="field.deferheading" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QTl-gR-kw6">
+                                <rect key="frame" x="629" y="65" width="199" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" placeholderString="Not ready yet?" id="O2m-GT-ckK">
+                                    <font key="font" metaFont="systemBold" size="12"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField identifier="field.defertext" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="22h-PS-8Xj">
+                                <rect key="frame" x="629" y="45" width="199" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" placeholderString="Try again later." id="vID-gt-imR">
+                                    <font key="font" metaFont="cellTitle"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -289,6 +321,8 @@ DQ
                         <outlet property="button_update" destination="oyk-ei-5a8" id="dQI-gK-iCh"/>
                         <outlet property="field_daysremaining" destination="kC2-TL-1sJ" id="9BT-MR-2kB"/>
                         <outlet property="field_daysremainingtext" destination="OOf-bB-dLk" id="SHC-Os-VP3"/>
+                        <outlet property="field_deferheading" destination="QTl-gR-kw6" id="Wpv-lb-0ys"/>
+                        <outlet property="field_defertext" destination="22h-PS-8Xj" id="AR0-gM-6TB"/>
                         <outlet property="field_h1text" destination="eV0-YG-pgw" id="w0x-sm-MD6"/>
                         <outlet property="field_h2text" destination="Qh5-Kt-lND" id="nnx-UH-Sxe"/>
                         <outlet property="field_paragraph1" destination="9Uf-qj-aPI" id="KWG-X1-ZjH"/>
@@ -302,6 +336,7 @@ DQ
                         <outlet property="field_username" destination="SN0-UA-L3y" id="V8f-xv-iHZ"/>
                         <outlet property="image_companylogo" destination="LJn-oF-gvY" id="W7b-TS-WkD"/>
                         <outlet property="image_updates" destination="3jk-fL-etM" id="36D-IU-BEa"/>
+                        <outlet property="snoozeMenu" destination="YXa-56-QoG" id="7Cd-Mb-OP5"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

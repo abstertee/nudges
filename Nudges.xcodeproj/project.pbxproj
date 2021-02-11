@@ -26,6 +26,7 @@
 		D0C786B62475B7DE00F79FBA /* GlobalVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C786B52475B7DE00F79FBA /* GlobalVars.swift */; };
 		D0C786B82475EC3D00F79FBA /* NVC+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C786B72475EC3D00F79FBA /* NVC+Extension.swift */; };
 		D0C786BA2475EC7700F79FBA /* NudgeViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C786B92475EC7700F79FBA /* NudgeViewModal.swift */; };
+		D0E6FB5225D4A37700FF6051 /* DeferMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E6FB5125D4A37700FF6051 /* DeferMenu.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		D0C786B52475B7DE00F79FBA /* GlobalVars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVars.swift; sourceTree = "<group>"; };
 		D0C786B72475EC3D00F79FBA /* NVC+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NVC+Extension.swift"; sourceTree = "<group>"; };
 		D0C786B92475EC7700F79FBA /* NudgeViewModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NudgeViewModal.swift; sourceTree = "<group>"; };
+		D0E6FB5125D4A37700FF6051 /* DeferMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeferMenu.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 				D0C786B32475B7C500F79FBA /* Dates.swift */,
 				D0C786B92475EC7700F79FBA /* NudgeViewModal.swift */,
 				D019D72C2480417A00257524 /* Alerts.swift */,
+				D0E6FB5125D4A37700FF6051 /* DeferMenu.swift */,
 			);
 			path = Modals;
 			sourceTree = "<group>";
@@ -241,6 +244,7 @@
 				D0BA9C21247DA65B00B32A25 /* WindowManager.swift in Sources */,
 				D0BF9BD924770FD9003FC9C0 /* NudgeWindowController.swift in Sources */,
 				D0C786BA2475EC7700F79FBA /* NudgeViewModal.swift in Sources */,
+				D0E6FB5225D4A37700FF6051 /* DeferMenu.swift in Sources */,
 				D0C786A82475B5F900F79FBA /* Logger.swift in Sources */,
 				D0C786B42475B7C500F79FBA /* Dates.swift in Sources */,
 			);

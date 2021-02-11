@@ -15,64 +15,101 @@ struct AppFiles {
     static let nudgePathResources = nudgePath.appendingPathComponent("Resources")
     
     // Files
-    static let nudgePathJson = AppFiles.nudgePathResources.appendingPathComponent("nudge.json")
+    static let nudgePathJson = AppFiles.nudgePathResources.appendingPathComponent("nudges.json")
 }
 
-struct JsonRoot: Codable {
-    let preferences: JsonPreferencesKey
+struct NudgePrefs: Decodable {
+//    var preferences: PreferencesKey?
+//    var osVersionRequirements: OsVersionRequirementKeys?
+//    var userInterface: UserInterface?
+//    var timer: Timer?
+    let preferences: Preferences
+    let userInterface: UserInterface
+    let osVersionRequirements: OsVersionRequirement
+    let timer: Timer
+    
+    struct Preferences: Decodable {
+        let cut_off_date: String
+        let cut_off_date_warning: Int
+        let days_between_notifications: Int
+        let defer_menu: Bool
+        let defer_options: [DeferOptions]
+        let dismissal_count_threshold: Int
+        let logo_path: String
+        let local_url_for_upgrade: String
+        
+        let path_to_app: String
+        let random_delay: String
+        
+        struct DeferOptions: Decodable {
+            let seconds: Int
+            let text: String
+        }
+    }
+    
+    struct UserInterface: Decodable {
+        let button_title_text: String
+        let button_sub_titletext: String
+        let defer_message: String
+        let defer_heading: String
+        let defer_text: String
+        let main_subtitle_text: String
+        let main_title_text: String
+        let more_info_url: URL
+        let paragraph1_text: String
+        let paragraph2_text: String
+        let paragraph3_text: String
+        let paragraph_title_text: String
+        let screenshot_path: String
+    }
+    
+    struct OsVersionRequirement: Decodable {
+        let minimum_os_sub_build_version: String
+        let minimum_os_version: String
+        let update_minor: String
+        let update_minor_days: Int
+        
+    }
+    
+    struct Timer: Decodable {
+        let timer_day_1: Int
+        let timer_day_3: Int
+        let timer_elapsed: Int
+        let timer_final: Int
+        let timer_initial: Int
+        let no_timer: Bool
+    }
+    
 }
 
-struct JsonPreferencesKey: Codable {
-    let button_title_text: String
-    let button_sub_titletext: String
-    let cut_off_date: String
-    let cut_off_date_warning: Int
-    let days_between_notifications: Int
-    let dismissal_count_threshold: Int
-    let logo_path: String
-    let main_subtitle_text: String
-    let main_title_text: String
-    let minimum_os_sub_build_version: String
-    let minimum_os_version: String
-    let more_info_url: URL
-    let no_timer: Bool
-    let paragraph1_text: String
-    let paragraph2_text: String
-    let paragraph3_text: String
-    let paragraph_title_text: String
-    let path_to_app: String
-    let random_delay: Bool
-    let screenshot_path: String
-    let timer_day_1: Int
-    let timer_day_3: Int
-    let timer_elapsed: Int
-    let timer_final: Int
-    let timer_initial: Int
-    let update_minor: Bool
-    let update_minor_days: Int
-}
 
+var nudgePreferencesRaw: NudgePrefs? = setPreferences()
+let nudgePreferences = nudgePreferencesRaw!
 
-var nudgePreferencesRaw: JsonRoot? = setPreferences()
-let nudgePreferences = nudgePreferencesRaw!.preferences
-
-func getPrefs() -> JsonPreferencesKey {
+func getPrefs() -> NudgePrefs {
     guard let prefs = nudgePreferencesRaw else {
         let messageText = "ERROR Reading Config file."
         let infoText = "There was an error reading the config file so the app will not run properly."
-        Alerts.shared.alertMessage(nil, messageText, "Ok", nil, infoText, .window)
-        exit(1)
+        let myAlert = Alerts(currentWindow: nil, messageText: messageText, mainButton: "Ok", additionalButton: nil, informativeText: infoText, windowType: .window)
+        //Alerts.shared.alertMessage(nil, messageText, "Ok", nil, infoText, .window)
+        myAlert.alert.runModal()
+        exit(101)
         //return
     }
-    return prefs.preferences
+    //print("returning prefs: \(prefs.preferences)")
+    return prefs
 }
 
-func setPreferences() -> JsonRoot? {
+func setPreferences() -> NudgePrefs? {
+    print("Running setPrefs...")
     do {
-        let fileData = try JSONDecoder().decode(JsonRoot.self, from: JsonReader(jsonFile: AppFiles.nudgePathJson).jsonData)
+        let fileData = try JSONDecoder().decode(NudgePrefs.self, from: JsonReader(jsonFile: AppFiles.nudgePathJson).jsonData)
+        debugPrint("File data is: \(fileData)")
         return fileData
     } catch {
-        OSLog.log(LogMessage.JsonError.jsonReadError + "\(error)", log: OSLog.error, type: .error)
+        //OSLog.log(LogMessage.JsonError.jsonReadError + "\(error)", log: OSLog.error, type: .error)
+        logger.write(entry: LogMessage.JsonError.jsonReadError + "\(error)")
+        print(LogMessage.JsonError.jsonReadError + "\(error)")
         return nil
     }
 }

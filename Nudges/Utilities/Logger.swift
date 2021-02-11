@@ -20,3 +20,36 @@ extension OSLog {
            os_log("%@", log: log, type: type, message)
        }
 }
+
+class Log {
+    
+    private let logFileUrl = FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask).first?.appendingPathComponent("Logs").appendingPathComponent("nudge.log")
+    
+    private func getDate() -> String {
+        let now = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let timeStamp = formatter.string(from: now)
+        return timeStamp
+    }
+    
+    func write(entry: String) {
+        if FileManager.default.fileExists(atPath: logFileUrl!.path) == false {
+            FileManager.default.createFile(atPath: logFileUrl!.path,
+                                           contents: .none,
+                                           attributes: [
+                                            .groupOwnerAccountID: 20,
+                                            .posixPermissions: 0o777
+                                           ])
+        }
+        
+        let message = (getDate() + ": " + entry + "\n").data(using: String.Encoding.utf8)!
+        if let fileHandle = try? FileHandle(forWritingTo: logFileUrl!) {
+            fileHandle.seekToEndOfFile()
+            fileHandle.write(message)
+            fileHandle.closeFile()
+        }
+    }
+}
+
+let logger = Log()

@@ -1,31 +1,43 @@
 {
     "preferences": {
-        "button_title_text": "Ready to start the update?",
-        "button_sub_titletext": "Click on the button below.",
-        "cut_off_date": "2020-07-31-00:00",
-        "cut_off_date_warning": 14,
+        "cut_off_date": "2021-03-30-22:01:01",
+        "cut_off_date_warning": 1,
         "days_between_notifications": 0,
+        "defer_menu": true,
+        "defer_options": [{ "seconds": 86400, "text": "1 Day" }, { "seconds": 43200, "text": "12 Hours" }, { "seconds": 28800, "text": "8 Hours" }, { "seconds": 10800, "text": "3 Hours" }, { "seconds": 3600, "text": "1 Hour" }, { "seconds": 1800, "text": "30 Mins"}, { "seconds": 900, "text": "15 Mins"}],
         "dismissal_count_threshold": 100,
         "logo_path": "/Library/nudges/Resources/logo_wday-RGB.png",
-        "main_subtitle_text": "",
-        "main_title_text": "macOS Catalina Upgrade",
-        "minimum_os_sub_build_version": "19D76",
-        "minimum_os_version": "10.15.5",
-        "more_info_url": "https://google.com",
-        "no_timer": false,
-        "paragraph1_text": "You are required to upgrade to macOS Catalina.  Your current OS version will no longer be supported.",
-        "paragraph2_text": "If you do not complete the upgrade by the end date, your system will upgrade on next login.",
-        "paragraph3_text": "The upgrade takes between 30-90 minutes to complete.  Please connect to power before beginning.",
-        "paragraph_title_text": "A macOS update is required on your machine.",
+        "local_url_for_upgrade": "x-apple.systempreferences:com.apple.preferences.softwareupdate?installMajorOSVersion=10.15.8",
         "path_to_app": "/Applications/Install macOS Catalina.app",
-        "random_delay": false,
-        "screenshot_path": "/Library/nudges/Resources/update_1015.png",
+        "random_delay": "false"
+    },
+    "osVersionRequirements": {
+        "minimum_os_sub_build_version": "19D76",
+        "minimum_os_version": "11.1",
+        "update_minor": "true",
+        "update_minor_days": 0
+    },
+    "timer": {
+        "no_timer": false,
         "timer_day_1": 600,
         "timer_day_3": 7200,
         "timer_elapsed": 10,
         "timer_final": 60,
-        "timer_initial": 14400,
-        "update_minor": true,
-        "update_minor_days": 0,
+        "timer_initial": 14400
+    },
+    "userInterface": {
+        "button_title_text": "Ready to start the update?",
+        "button_sub_titletext": "Click on the button below.",
+        "defer_message": "Your system will be upgraded to macOS Catalina automatically if you do not take action by the date above.\r\rPlease open the Self-Service app (Applications>Self-Service) and complete the upgrade at a time that is convenient for you.",
+        "defer_heading": "Not ready yet?",
+        "defer_text": "Remind Me Later",
+        "main_subtitle_text": " ",
+        "main_title_text": "macOS Catalina Upgrade",
+        "more_info_url": "https://docs.google.com/document/d/16Ug5gVQZ_whIhW9ZHlMmNWaVZa0YJ4hgvs--tm1FARo/edit?usp=sharing",
+        "paragraph1_text": "You are required to upgrade to macOS Catalina.  The upgrade process will take up to 60 minutes BUT you will not be able to use your Mac during this time frame.\r\rIf now is not a convenient time to start the upgrade, you can choose to defer and start the upgrade from the Self Service app (Applications>Self-Service) at a later time (for example during lunch or at the end of your work day).\r\rPlease remember to save your work and make sure your Mac is plugged into power before starting the upgrade process.",
+        "paragraph2_text": "",
+        "paragraph3_text": "",
+        "paragraph_title_text": "A macOS update is required on your machine.",
+        "screenshot_path": "/Library/nudges/Resources/update_1015.png"
     }
 }

@@ -10,60 +10,41 @@ import Foundation
 import Cocoa
 import os.log
 
-class Alerts: NSObject {
-    static let shared: Alerts = {
-        let alert = Alerts()
-        return alert
-    }()
-    
-    //let alert = NSAlert()
-    
-    enum AlertWindowType: String {
-        case sheet, window
+class Alerts {
+    var icon: NSImage? {
+        if let myIcon = NSImage(named: "warningicon") {
+            return myIcon
+        }
+        return nil
     }
     
-    // Display Message if an error occurs
-    func alertMessage(_ currentWindow:NSWindow?,_ messageText:String,_  mainButton:String,_ additionalButton:String?,_ informativeText:String,_ windowType:AlertWindowType) {
-        switch windowType {
-        case .sheet:
-            alertSheet(currentWindow!, messageText, mainButton, additionalButton, informativeText)
-        case .window:
-            alertWindow(messageText, mainButton, additionalButton!, informativeText)
-        }
-    }
+    var alert = NSAlert()
     
-    private func alertSheet(_ currentWindow:NSWindow, _ messageText:String, _ mainButton:String, _ additionalButton:String?, _ informativeText:String) {
-        let alert = NSAlert()
-        alert.messageText = messageText // Edit as Required
-        alert.informativeText = informativeText // Edit as Required
-        alert.addButton(withTitle: mainButton)
-        if additionalButton != nil {
-            alert.addButton(withTitle: additionalButton!)
-        }
+    var currentWindow: NSWindow
+    var messageText: String
+    var mainButton: String
+    var additionalButton: String?
+    var informativeText:String
+    var windowType:AlertWindowType
+    
+    init(currentWindow:NSWindow?, messageText:String, mainButton:String, additionalButton:String?, informativeText:String, windowType:AlertWindowType) {
         
-        OSLog.log(messageText, log: .info, type: .info)
-        alert.beginSheetModal(for: currentWindow, completionHandler: { (returnCode) -> Void in
-            if returnCode == NSApplication.ModalResponse.alertFirstButtonReturn {
-                //logger.write("Alert: \(mainButton) Button pressed: \(returnCode)")
-                OSLog.log("User clicked \(mainButton) - \(returnCode)", log: .info, type: .info)
-                currentWindow.close()
-            } else if returnCode == NSApplication.ModalResponse.alertSecondButtonReturn {
-                //logger.write("Alert: \(additionalButton) Button pressed")
-                OSLog.log("User clicked \(additionalButton) - \(returnCode)", log: .info, type: .info)
-                exit(1)
-            }
-        })
-    }
-    
-    private func alertWindow(_ messageText:String, _ mainButton:String, _ additionalButton:String?, _ informativeText:String) {
-        let alert = NSAlert()
-        alert.messageText = messageText // Edit as Required
-        alert.informativeText = informativeText // Edit as Required
+        self.currentWindow = currentWindow!
+        self.messageText = messageText
+        self.mainButton = mainButton
+        self.additionalButton = additionalButton
+        self.informativeText = informativeText
+        self.windowType = windowType
+        
+        alert.messageText = messageText
+        alert.informativeText = informativeText
         alert.addButton(withTitle: mainButton)
-        if additionalButton != nil {
-            alert.addButton(withTitle: additionalButton!)
+        if let anotherButton = additionalButton {
+            alert.addButton(withTitle: anotherButton)
         }
-        _ = alert.runModal()
-        exit(1)
     }
+}
+
+enum AlertWindowType: String {
+    case sheet, window
 }
